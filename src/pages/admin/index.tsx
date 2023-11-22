@@ -79,6 +79,11 @@ export function Admin(){
     })
   }
 
+  async function handleDeleteLink(id: string){
+    const docRef = doc(db, "links", id);
+    await deleteDoc(docRef);
+  }
+
   return (
     <div className="flex items-center flex-col min-h-screen pb-7 px-2">
       <Header />
@@ -148,9 +153,10 @@ export function Admin(){
         className="flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none"
         style={{backgroundColor: link.bg, color: link.color}}
       >
-        <p className="text-white">Canal do Youtube</p>
+        <p className="text-white">{link.name}</p>
         <button
           className="border border-dashed p-1 rounded"
+          onClick={() => handleDeleteLink(link.id)}
         ><FiTrash size={18} color="#FFF"/></button>
       </article>
       ))}

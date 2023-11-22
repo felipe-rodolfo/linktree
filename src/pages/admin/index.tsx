@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Header } from "../../components/header";
 import { Input } from "../../components/input";
 import {FiTrash} from 'react-icons/fi';
@@ -13,6 +13,13 @@ import {
   deleteDoc
 } from 'firebase/firestore';
 
+interface LinkProps {
+  id: string,
+  name: string,
+  url: string,
+  bg: string,
+  color: string
+}
 
 export function Admin(){
 
@@ -20,6 +27,33 @@ export function Admin(){
   const [urlInput, setUrlInput] = useState("")
   const [textColorInput, setTextColorInput] = useState("#f1f1f1")
   const [backgroundColorInput, setBackgroundColorInput] = useState("#121212")
+
+  const [links, setLinks] = useState<LinkProps[]>([])
+
+  useEffect(() => {
+    const linksRef = collection(db, "links");
+    const queryRef = query(linksRef, orderBy('created', "asc"));
+
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+      let list = [] as LinkProps[];
+
+      snapshot.forEach((doc) => {
+        list.push({
+          id: doc.id,
+          name: doc.data().name,
+          url: doc.data().url,
+          bg: doc.data().bg,
+          color: doc.data().color
+        })
+      })
+
+      setLinks(list);
+    })
+
+    return () => {
+      unsub();
+    }
+  }, [])
 
   function handleRegister(e: FormEvent){
     e.preventDefault();
@@ -107,15 +141,19 @@ export function Admin(){
       </form>
 
       <h2 className="font-bold text-white mb-4 text-2x1">Meus links</h2>
-
-      <article className="flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none"
-        style={{backgroundColor: "#2563e8", color: "#000"}}
+        
+      {links.map((link) => (
+        <article 
+        key={link.id}
+        className="flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none"
+        style={{backgroundColor: link.bg, color: link.color}}
       >
         <p className="text-white">Canal do Youtube</p>
         <button
           className="border border-dashed p-1 rounded"
         ><FiTrash size={18} color="#FFF"/></button>
       </article>
+      ))}
     </div>
   )
 }

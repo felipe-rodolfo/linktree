@@ -34,6 +34,6 @@ $ npm install
 $ npm run dev
 ```
 ## Acessar online
-[Ver online](linktree-three-jade.vercel.app)
+[Ver online](https://linktree-three-jade.vercel.app)
 
 Feito com ♥ por Felipe Rodolfo: [Entre em contato!] (https://www.linkedin.com/in/felipe-rodolfo/)

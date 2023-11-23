@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+<h1 align="center">
+    Linkthree - salve paths to digital life
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h4 align="center">
+  An application to save personal links such as blog links and social media links, similar to Linktree.
+</h4>
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+-  [ReactJS](https://react.dev/)
+-  [TypeScript](https://www.typescriptlang.org/)
+-  [TailWindCSS](https://tailwindcss.com/)
+-  [React Router v6](https://github.com/ReactTraining/react-router)
+-  [VS Code](https://code.visualstudio.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Como usar
 
-- Configure the top-level `parserOptions` property like this:
+Para clonar e executar este aplicativo, você precisará do [Git] (https://git-scm.com), [Node.js v14.16.0] [nodejs] ou superior + [NPM v6.14.11] [npm] ou superior instalado no seu computador. Na sua linha de comando: 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+# Clone este repositório
+$ git clone https://github.com/felipe-rodolfo/linktree.git
+
+# Vá para o repositório
+$ cd linktree
+
+# Instale as dependências
+$ npm install
+
+# Execute o aplicativo
+$ npm run dev
 ```
+## Acessar online
+[Ver online](linktree-three-jade.vercel.app)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Feito com ♥ por Felipe Rodolfo: [Entre em contato!] (https://www.linkedin.com/in/felipe-rodolfo/)

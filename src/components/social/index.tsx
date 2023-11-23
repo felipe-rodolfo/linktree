@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface SocialProps {
-  url: string,
+  url: string | undefined,
   children: ReactNode
 }
 

@@ -8,7 +8,6 @@ import {
   query,
   doc,
   getDoc,
-  snapshotEqual
 } from 'firebase/firestore'
 import { useEffect, useState } from "react";
 
